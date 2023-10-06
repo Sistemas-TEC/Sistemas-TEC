@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WfhnuF4nf/liw4SvovgeRLueTmZLmmDAsq5N0ZcG4GY1pU1yiN+ycxb/stpaTR+sTE1daoE35v3nkxHV5aZA5g==",
+  "dgSpecHash": "1c321Ht3BG26uiZsTDmp6XY+/nx1zioiYq+QyjzdeXxnh2/iYxpWN4kabkC3eNlSt+i0mCx3OUhYMLjl2gQA6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
+  "projectFilePath": "C:\\Users\\andre\\Source\\Repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj": {}
+    "C:\\Users\\andre\\Source\\Repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj": {
+    "C:\\Users\\andre\\Source\\Repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Source\\Repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
         "projectName": "Sistema_Tec_Web_API",
-        "projectPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
+        "projectPath": "C:\\Users\\andre\\Source\\Repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\obj\\",
         "projectStyle": "PackageReference",

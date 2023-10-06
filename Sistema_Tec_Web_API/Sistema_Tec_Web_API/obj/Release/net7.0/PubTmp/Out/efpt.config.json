@@ -1,0 +1,95 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "Sistema_TecContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Sistema_Tec_Web_API",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Application]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationRole]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Campus]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Degree]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Department]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Employee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Organization]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OrganizationType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Person]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PersonXApplicationRole]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PersonXDepartment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PersonXSchool]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[School]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Student]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "vj2100.Sistema_Tec.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
