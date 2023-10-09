@@ -11,16 +11,16 @@ namespace Sistema_Tec_Web_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CampusController : ControllerBase
+    public class CampusesController : ControllerBase
     {
         private readonly Sistema_TecContext _context;
 
-        public CampusController(Sistema_TecContext context)
+        public CampusesController(Sistema_TecContext context)
         {
             _context = context;
         }
 
-        // GET: api/Campus
+        // GET: api/Campuses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Campus>>> GetCampuses()
         {
@@ -31,7 +31,7 @@ namespace Sistema_Tec_Web_API.Controllers
             return await _context.Campuses.ToListAsync();
         }
 
-        // GET: api/Campus/5
+        // GET: api/Campuses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Campus>> GetCampus(int id)
         {
@@ -49,7 +49,7 @@ namespace Sistema_Tec_Web_API.Controllers
             return campus;
         }
 
-        // PUT: api/Campus/5
+        // PUT: api/Campuses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCampus(int id, Campus campus)
@@ -80,7 +80,7 @@ namespace Sistema_Tec_Web_API.Controllers
             return NoContent();
         }
 
-        // POST: api/Campus
+        // POST: api/Campuses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Campus>> PostCampus(Campus campus)
@@ -95,7 +95,7 @@ namespace Sistema_Tec_Web_API.Controllers
             return CreatedAtAction("GetCampus", new { id = campus.id }, campus);
         }
 
-        // DELETE: api/Campus/5
+        // DELETE: api/Campuses/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCampus(int id)
         {
