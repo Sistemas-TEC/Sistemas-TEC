@@ -28,7 +28,49 @@ namespace Sistema_Tec_Web_API.Controllers
           {
               return NotFound();
           }
-            return await _context.People.ToListAsync();
+            var personList = await _context.People
+                .Include(p => p.applicationRoles)
+                .Include(p => p.departments)
+                .Include(p => p.schools)
+                .Select(p => new Person
+                {
+                    email = p.email,
+                    personPassword = p.personPassword,
+                    personName = p.personName,
+                    firstLastName = p.firstLastName,
+                    secondLastName = p.secondLastName,
+                    debt = p.debt,
+                    applicationRoles = p.applicationRoles,
+                    departments = p.departments,
+                    schools = p.schools,
+                    //Employee = _context.Employees.FirstOrDefault(s => s.email == p.email)
+                })
+                .ToListAsync();
+
+            foreach (var person in personList) 
+            {
+                foreach (var appRole in person.applicationRoles)
+                {
+                    appRole.emails = null;
+                }
+            }
+            /*foreach (var person in personList)
+            {
+                foreach (var department in person.departments)
+                {
+                    department.emails = null;
+                }
+            }
+            foreach (var person in personList)
+            {
+                foreach (var school in person.schools)
+                {
+                    school.emails = null;
+                }
+            }
+            */
+            return personList;
+            //return await _context.People.ToListAsync();
         }
 
         // GET: api/People/5

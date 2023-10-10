@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Sistema_Tec_Web_API.Models;
 
@@ -20,9 +21,9 @@ public partial class Person
     public string secondLastName { get; set; }
 
     public int debt { get; set; }
-
+    
     public virtual Employee Employee { get; set; }
-
+    
     public virtual Student Student { get; set; }
 
     public virtual ICollection<ApplicationRole> applicationRoles { get; set; } = new List<ApplicationRole>();
