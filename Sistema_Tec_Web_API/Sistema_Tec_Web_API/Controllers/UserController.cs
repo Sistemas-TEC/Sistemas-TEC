@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using Sistema_Tec_Web_API.Models;
 using System.Diagnostics;
-
+using Newtonsoft.Json.Linq;
 
 namespace Sistema_Tec_Web_API.Controllers
 {
@@ -186,7 +186,7 @@ namespace Sistema_Tec_Web_API.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Person>> GetPerson(string id)
+        public async Task<ActionResult<User>> GetPerson(string id)
         {
             if (_context.People == null)
             {
@@ -345,6 +345,72 @@ namespace Sistema_Tec_Web_API.Controllers
             }
 
             return Ok(userList[0]);
+        }
+
+        // GET: api/Users/5
+        [HttpPost]
+        public async Task<ActionResult<User>> Login([FromBody] JObject data)
+        {
+            if (_context.People == null)
+            {
+                return NotFound();
+            }
+            string id = data["email"].ToString();
+            string password = data["password"].ToString();
+            var peopleXStudent = await _context.People.Where(p => p.email == id)
+            .Where(p => _context.Students.Any(s => s.email == id))
+            .Include(p => p.Student.degree)
+            .Select(p => new Person
+            {
+                email = p.email,
+                id = p.id,
+                personPassword = p.personPassword,
+                personName = p.personName,
+                firstLastName = p.firstLastName,
+                secondLastName = p.secondLastName,
+                debt = p.debt,
+                applicationRoles = p.applicationRoles,
+                departments = p.departments,
+                schools = p.schools,
+                Student = _context.Students.FirstOrDefault(s => s.email == id)
+            })
+            .ToListAsync();
+
+            var peopleXEmployee = await _context.People.Where(p => p.email == id)
+            .Where(p => _context.Employees.Any(s => s.email == id))
+            .Include(p => p.applicationRoles)
+            .Include(p => p.departments)
+            .Include(p => p.schools)
+            .Select(p => new Person
+            {
+                email = p.email,
+                id = p.id,
+                personPassword = p.personPassword,
+                personName = p.personName,
+                firstLastName = p.firstLastName,
+                secondLastName = p.secondLastName,
+                debt = p.debt,
+                applicationRoles = p.applicationRoles,
+                departments = p.departments,
+                schools = p.schools,
+                Employee = _context.Employees.FirstOrDefault(s => s.email == id)
+            })
+
+            .ToListAsync();
+
+            peopleXStudent.AddRange(peopleXEmployee);
+            foreach (var person in peopleXStudent)
+            {
+                if (person == null)
+                {
+                    continue;
+                }
+                if (person.email == id && person.personPassword == password)
+                {
+                    return Ok(person);
+                }
+            }
+            return Ok(null);
         }
 
     }
