@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LayoutTemplateWebApp",
+    "\\LayoutTemplateWebApp\\Pages"
   ],
-  "SelectedNode": "\\Sistema_Tec_Web_API.sln",
+  "SelectedNode": "\\LayoutTemplateWebApp\\LayoutTemplateWebApp.sln",
   "PreviewInSolutionExplorer": false
 }

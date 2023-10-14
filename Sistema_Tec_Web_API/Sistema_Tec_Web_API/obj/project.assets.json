@@ -11668,19 +11668,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {}
+    "C:\\Users\\Xpc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
+      "projectUniqueName": "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
       "projectName": "Sistema_Tec_Web_API",
-      "projectPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\obj\\",
+      "projectPath": "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API.csproj",
+      "packagesPath": "C:\\Users\\Xpc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Xpc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

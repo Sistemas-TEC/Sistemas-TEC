@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LayoutTemplateWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LayoutTemplateWebApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E6F2FB;">
+
+            <div class="container-fluid align-middle">
+                <div class="align-middle">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">
+                        @* //This could be the link to the inicial app page *@
+                        <i class="bi bi-mortarboard-fill"></i>
+                        Menu Principal
+                    </a>
+                </div>
+               
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    @{
+                        var option1IsActive = Context.Request.Path.Value.Contains("/Option1");
+                        var option2IsActive = Context.Request.Path.Value.Contains("/Option2");
+                        var option3IsActive = Context.Request.Path.Value.Contains("/Option3");
+                        var loginActive = Context.Request.Path.Value.Contains("/Login");
+                    }
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/Option1">Option1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/Option2">Option2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/Option3">Option3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(loginActive ? "active" : "")" asp-area="" asp-page="/Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
+                    <i class="bi bi-person"></i>
+                </div>
+
+
+
+            </div>
+        </nav>
+    </header>
+       
+
+    <div class="page d-flex flex-row bg-grayContrast">
+        <aside class="site-bar bg-white">
+            <ul class="d-flex flex-column gap-3 px-0 py-2">
+                <li class="py-2 inline-nav-item ">
+                    <i class="bi bi-people-fill"></i>
+                    Reservacion de Canchas
+                </li>
+                <li class="py-2 bg-footer inline-nav-item-nd">
+                    <i class="bi bi-people-fill"></i>
+                    Emparejatec
+                </li>
+                <li class="py-2 bg-footer inline-nav-item-nd">
+                    <i class="bi bi-people-fill"></i>
+                    Gestor de Asambleas Estudiantiles
+                </li>
+            </ul>
+           
+        </aside>
+        <div class="content-page w-100">
+            <main role="main" class="pb-3">
+
+
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted ">
+        <div class="container">
+            Correo: example@itcr.ac.cr Teléfono: 2020-2020 
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!-- For the datepicker -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> <!-- For the datepicker -->
+
+  
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
