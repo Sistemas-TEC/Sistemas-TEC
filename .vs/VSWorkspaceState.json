@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\LayoutTemplateWebApp",
-    "\\LayoutTemplateWebApp\\Pages"
+    "\\LayoutTemplateWebApp\\Pages",
+    "\\LayoutTemplateWebApp\\Pages\\Shared",
+    "\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API",
+    "\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Controllers"
   ],
-  "SelectedNode": "\\LayoutTemplateWebApp\\LayoutTemplateWebApp.sln",
+  "SelectedNode": "\\LayoutTemplateWebApp\\Pages\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj": {}
+    "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj": {
+    "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
         "projectName": "LayoutTemplateWebApp",
-        "projectPath": "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
-        "packagesPath": "C:\\Users\\Xpc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Xpc\\Desktop\\Diseno\\Sistemas-TEC\\LayoutTemplateWebApp\\obj\\",
+        "projectPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Xpc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

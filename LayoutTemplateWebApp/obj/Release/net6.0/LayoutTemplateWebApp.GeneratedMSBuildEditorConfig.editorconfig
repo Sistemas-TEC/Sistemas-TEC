@@ -9,53 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LayoutTemplateWebApp
 build_property.RootNamespace = LayoutTemplateWebApp
-build_property.ProjectDir = C:\Users\Xpc\Desktop\Diseno\Sistemas-TEC\LayoutTemplateWebApp\
+build_property.ProjectDir = C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Xpc\Desktop\Diseno\Sistemas-TEC\LayoutTemplateWebApp
+build_property.MSBuildProjectDirectory = C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Index.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Login.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option1.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3B0aW9uMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option2.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3B0aW9uMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option3.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3B0aW9uMy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Profile.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/_ViewImports.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/_ViewStart.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/LoginPrincipal.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/LoginPrincipal.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5QcmluY2lwYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-aowoxvilta
 
-[C:/Users/Xpc/Desktop/Diseno/Sistemas-TEC/LayoutTemplateWebApp/Pages/Shared/_Layout.cshtml]
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1wnq3fk48m

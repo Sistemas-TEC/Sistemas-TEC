@@ -1,5 +1,5 @@
 ﻿@page
-@model LayoutTemplateWebApp.Pages.Pages_Login
+@model LayoutTemplateWebApp.Pages.LoginModel
 @{
     ViewData["Title"] = "Login";
 }
@@ -7,24 +7,25 @@
 <section class="container px-5 py-3" style="margin-top: 250px; margin-left: auto; margin-right: -100px;">
     <div class="row">
         <div class="col-md-6">
-            <form>
+            <form method="post">
                 <div class="text-center">
                     
                     <div class="mb-3">
-                        <label class="form-label">Correo</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Correo" style="border: 5px solid #E6F2FB;">
+                        <label asp-for="@Model.email">Correo</label>
+                        <input asp-for="@Model.email" class="form-control" placeholder="Correo" style="border: 5px solid #E6F2FB;">
 
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Contraseña</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Contraseña" style="border: 5px solid #E6F2FB">
+                        <label asp-for="@Model.password" class="form-label">Contraseña</label>
+                        <input asp-for="@Model.password" class="form-control" placeholder="Contraseña" style="border: 5px solid #E6F2FB">
                     </div>
 
                     <p>
-                        <button type="button" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Ingresar</button>
+                        <button type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Ingresar</button>
                     </p>
                     <p>
-                        <button type="button" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
+                        <!-- crear página de crear usuarios -->
+                        <button asp-page="Index" type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
                     </p>
                 </div>
             </form>
