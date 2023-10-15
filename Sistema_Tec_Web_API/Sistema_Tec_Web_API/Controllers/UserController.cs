@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using Sistema_Tec_Web_API.Models;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace Sistema_Tec_Web_API.Controllers
 {
@@ -349,14 +350,16 @@ namespace Sistema_Tec_Web_API.Controllers
 
         // GET: api/Users/5
         [HttpPost]
-        public async Task<ActionResult<User>> Login([FromBody] JObject data)
+        public async Task<ActionResult<User>> Login(LoginBody data)
         {
             if (_context.People == null)
             {
                 return NotFound();
             }
-            string id = data["email"].ToString();
-            string password = data["password"].ToString();
+            
+            string id = data.email;
+            string password = data.password;
+
             var peopleXStudent = await _context.People.Where(p => p.email == id)
             .Where(p => _context.Students.Any(s => s.email == id))
             .Include(p => p.Student.degree)
@@ -398,7 +401,12 @@ namespace Sistema_Tec_Web_API.Controllers
 
             .ToListAsync();
 
+            
             peopleXStudent.AddRange(peopleXEmployee);
+            List<UserApplicationRole> userApplicationRolesList;
+            List<UserDepartment> userDepartmentList;
+            List<UserSchool> userSchoolList;
+            List<User> userList = new List<User>();
             foreach (var person in peopleXStudent)
             {
                 if (person == null)
@@ -407,7 +415,98 @@ namespace Sistema_Tec_Web_API.Controllers
                 }
                 if (person.email == id && person.personPassword == password)
                 {
-                    return Ok(person);
+                    userDepartmentList = new List<UserDepartment>();
+                    userSchoolList = new List<UserSchool>();
+                    userApplicationRolesList = new List<UserApplicationRole>();
+                    foreach (var appRole in person.applicationRoles)
+                    {
+                        appRole.emails = null;
+                        appRole.application = null;
+
+                        var applicationMatch = _context.Applications.FirstOrDefault(s => s.id == appRole.applicationId);
+                        applicationMatch.ApplicationRoles = null;
+                        UserApplicationRole userApplicationRole = new UserApplicationRole
+                        {
+                            id = appRole.id,
+                            applicationId = appRole.applicationId,
+                            applicationRoleName = appRole.applicationRoleName,
+                            applicationName = applicationMatch.applicationName
+                        };
+                        userApplicationRolesList.Add(userApplicationRole);
+                    }
+
+                    foreach (var department in person.departments)
+                    {
+                        department.emails = null;
+
+                        var campusMatch = _context.Campuses.FirstOrDefault(s => s.id == department.campusId);
+                        campusMatch.Departments = null;
+                        campusMatch.Schools = null;
+                        UserDepartment userDepartment = new UserDepartment
+                        {
+                            id = department.id,
+                            departmentName = department.departmentName,
+                            campusId = department.campusId,
+                            campusName = campusMatch.campusName
+                        };
+                        userDepartmentList.Add(userDepartment);
+                    }
+
+                    foreach (var school in person.schools)
+                    {
+                        school.emails = null;
+
+                        var campusMatch = _context.Campuses.FirstOrDefault(s => s.id == school.campusId);
+                        campusMatch.Departments = null;
+                        campusMatch.Schools = null;
+                        UserSchool userSchool = new UserSchool
+                        {
+                            id = school.id,
+                            schoolName = school.schoolName,
+                            campusId = school.campusId,
+                            campusName = campusMatch.campusName
+                        };
+                        userSchoolList.Add(userSchool);
+                    }
+
+                    UserEmployee userEmployee = null;
+                    if (person.Employee != null)
+                    {
+                        userEmployee = new UserEmployee
+                        {
+                            id = person.Employee.id,
+                            isProfessor = person.Employee.isProfessor
+                        };
+                    }
+                    UserStudent userStudent = null;
+                    if (person.Student != null)
+                    {
+                        var degree = _context.Degrees.FirstOrDefault(d => d.id == person.Student.degreeId);
+                        userStudent = new UserStudent
+                        {
+                            id = person.Student.id,
+                            degreeName = degree.degreeName,
+                            degreeId = person.Student.degreeId,
+                            isExemptFromPrintingCosts = person.Student.isExemptFromPrintingCosts
+                        };
+                    }
+
+
+                    User user = new User
+                    {
+                        email = person.email,
+                        id = person.id,
+                        personName = person.personName,
+                        firstLastName = person.firstLastName,
+                        secondLastName = person.secondLastName,
+                        debt = person.debt,
+                        departments = userDepartmentList,
+                        schools = userSchoolList,
+                        applicationRoles = userApplicationRolesList,
+                        employee = userEmployee,
+                        student = userStudent
+                    };
+                    return Ok(user);
                 }
             }
             return Ok(null);
