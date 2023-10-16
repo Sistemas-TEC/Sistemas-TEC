@@ -1,3 +1,38 @@
+USE Sistema_TEC;
+GO
+
+CREATE PROCEDURE Change_Password
+	@email VARCHAR(255),
+	@oldPassword VARCHAR(255),
+	@newPassword VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION;
+    
+    BEGIN TRY
+        IF EXISTS (SELECT 1 FROM Person WHERE email = @email)
+			BEGIN
+				UPDATE Person
+				SET personPassword = @newPassword
+				WHERE email = @email AND personPassword = @oldPassword;
+			END
+        ELSE
+			BEGIN
+				;THROW 60000, 'Un usuario con este correo ya existe.', 1;
+			END
+        
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK; 
+        THROW 60001, 'Hubo un error al procesar la solicitud.', 1;
+    END CATCH
+END;
+GO
+
+
+
 CREATE PROCEDURE Create_Person
     @email VARCHAR(255),
     @personPassword VARCHAR(255),
@@ -29,7 +64,7 @@ BEGIN
         THROW 60001, 'Hubo un error al procesar la solicitud.', 1;
     END CATCH
 END;
-
+GO
 
 CREATE PROCEDURE Create_Student
     @email VARCHAR(255),
@@ -59,7 +94,7 @@ BEGIN
         THROW 60001, 'Hubo un error al procesar la solicitud.', 1;
     END CATCH
 END;
-
+GO
 
 CREATE PROCEDURE Create_Employee
     @id INT,
@@ -88,6 +123,8 @@ BEGIN
         THROW 60001, 'Hubo un error al procesar la solicitud.', 1;
     END CATCH
 END;
+GO
+
 
 CREATE PROCEDURE Create_Application_Role
     @applicationId INT,
@@ -115,6 +152,8 @@ BEGIN
         THROW 60001, 'Hubo un error al procesar la solicitud.', 1;
     END CATCH
 END;
+GO
+
 
 CREATE PROCEDURE Assign_Role
     @email VARCHAR(255),
@@ -142,9 +181,4 @@ BEGIN
         THROW 60001, 'Hubo un error al procesar la solicitud.', 1;
     END CATCH
 END;
-
-
-
-
-
 GO
