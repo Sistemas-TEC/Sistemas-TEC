@@ -16,7 +16,7 @@ namespace LayoutTemplateWebApp.Pages
 
         }
         public async Task OnPost() {
-            /*string email = Request.Cookies["email"];
+            string email = Request.Cookies["email"];
             if (email == null)
             {
                 return;
@@ -41,7 +41,7 @@ namespace LayoutTemplateWebApp.Pages
             user = Models.QuickType.User.FromJson(result);
             Debug.WriteLine(user.ApplicationRoles[0].ApplicationName);
             Debug.WriteLine(email);
-            return;*/
+            return;
         }
         
     }

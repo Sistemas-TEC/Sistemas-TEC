@@ -512,5 +512,77 @@ namespace Sistema_Tec_Web_API.Controllers
             return Ok(null);
         }
 
+        // GET: api/Users
+        [HttpPut]
+        public async Task<ActionResult<bool>> Change_Password(LoginBody data)
+        {
+            if (_context.People == null)
+            {
+                return NotFound();
+            }
+
+            var id = data.email;
+            var oldPassword = data.oldPassword;
+            var newPassword = data.newPassword;
+
+            var peopleXStudent = await _context.People.Where(p => p.email == id)
+            .Where(p => _context.Students.Any(s => s.email == id))
+            .Include(p => p.Student.degree)
+            .Select(p => new Person
+            {
+                email = p.email,
+                id = p.id,
+                personPassword = p.personPassword,
+                personName = p.personName,
+                firstLastName = p.firstLastName,
+                secondLastName = p.secondLastName,
+                debt = p.debt,
+                applicationRoles = p.applicationRoles,
+                departments = p.departments,
+                schools = p.schools,
+                Student = _context.Students.FirstOrDefault(s => s.email == id)
+            })
+            .ToListAsync();
+
+            var peopleXEmployee = await _context.People.Where(p => p.email == id)
+            .Where(p => _context.Employees.Any(s => s.email == id))
+            .Include(p => p.applicationRoles)
+            .Include(p => p.departments)
+            .Include(p => p.schools)
+            .Select(p => new Person
+            {
+                email = p.email,
+                id = p.id,
+                personPassword = p.personPassword,
+                personName = p.personName,
+                firstLastName = p.firstLastName,
+                secondLastName = p.secondLastName,
+                debt = p.debt,
+                applicationRoles = p.applicationRoles,
+                departments = p.departments,
+                schools = p.schools,
+                Employee = _context.Employees.FirstOrDefault(s => s.email == id)
+            })
+
+            .ToListAsync();
+
+
+            peopleXStudent.AddRange(peopleXEmployee);
+            foreach (var person in peopleXStudent)
+            {
+                if (person == null)
+                {
+                    continue;
+                }
+                if (person.email == id && person.personPassword == oldPassword)
+                {
+                    _context.People.Where(p => p.email == id && p.personPassword == oldPassword).ExecuteUpdate(setters => setters.SetProperty(p => p.personPassword, newPassword));
+
+                    return Ok(true);
+                }
+            }
+            return Ok(false);
+        }
+
     }
 }
