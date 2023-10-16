@@ -15,31 +15,26 @@ namespace LayoutTemplateWebApp.Pages
         {
 
         }
-        public async Task OnPost() {
+        public async Task OnPost(string OldPassword, string NewPassword) {
             string email = Request.Cookies["email"];
             if (email == null)
             {
                 return;
             }
-            var json = JsonConvert.SerializeObject(new { email = email });
+            var json = JsonConvert.SerializeObject(new { email = email, oldPassword = OldPassword, newPassword = NewPassword });
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var url = "http://www.sistema-tec.somee.com/api/users/";
             using var client = new HttpClient();
-
-            //var response = await client.PostAsync(url, data);
-            url += email;
-            Debug.WriteLine(url);
-            var response = await client.GetAsync(url);
+            var response = await client.PutAsync(url, data);
             var result = await response.Content.ReadAsStringAsync();
 
             if (result == null)
             {
                 return;
             }
-
-            user = Models.QuickType.User.FromJson(result);
-            Debug.WriteLine(user.ApplicationRoles[0].ApplicationName);
+            Debug.WriteLine(OldPassword);
+            Debug.WriteLine(result);
             Debug.WriteLine(email);
             return;
         }
