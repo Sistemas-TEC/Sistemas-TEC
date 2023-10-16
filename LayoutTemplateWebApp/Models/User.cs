@@ -36,21 +36,57 @@ namespace LayoutTemplateWebApp.Models.QuickType
         public long Debt { get; set; }
 
         [JsonProperty("employee")]
-        public object Employee { get; set; }
+        public Employee Employee { get; set; }
 
         [JsonProperty("student")]
         public Student Student { get; set; }
 
         [JsonProperty("departments")]
-        public object[] Departments { get; set; }
+        public Department[] Departments { get; set; }
 
         [JsonProperty("schools")]
-        public object[] Schools { get; set; }
+        public School[] Schools { get; set; }
 
         [JsonProperty("applicationRoles")]
         public ApplicationRole[] ApplicationRoles { get; set; }
     }
+    public partial class Employee
+    {
+        [JsonProperty("id")]
+        public long Id { get; set; }
 
+        [JsonProperty("isProfessor")]
+        public bool IsProfessor { get; set; }
+    }
+
+    public partial class School
+    {
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("schoolName")]
+        public string SchoolName { get; set; }
+
+        [JsonProperty("campusId")]
+        public long CampusId { get; set; }
+
+        [JsonProperty("campusName")]
+        public string CampusName { get; set; }
+    }
+    public partial class Department
+    {
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("departmentName")]
+        public string DepartmentName { get; set; }
+
+        [JsonProperty("campusId")]
+        public long CampusId { get; set; }
+
+        [JsonProperty("campusName")]
+        public string CampusName { get; set; }
+    }
     public partial class ApplicationRole
     {
         [JsonProperty("id")]

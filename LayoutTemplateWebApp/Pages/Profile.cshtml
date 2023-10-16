@@ -6,9 +6,6 @@
 <div class="ver-perfil">
     <div class="div">
         <div class="overlap-group">
-            <footer class="footer">
-                <p class="contacto-correo">Contacto <br />Correo: example@itcr.ac Teléfono: 2020-2020</p>
-            </footer>
             <div class="content-page">
                 <div class="container">
                     <div class="text-wrapper">Perfil</div>
@@ -31,18 +28,44 @@
                                 <div class="content">
                                     <div class="card-body">
                                         <div class="div-wrapper">
-                                            <div class="text">Leonardo DiCaprio</div>
+                                            <div class="text">@Model.user.PersonName @Model.user.FirstLastName @Model.user.SecondLastName</div>
                                         </div>
-                                        <div class="div-wrapper">
-                                            <div class="text-2">2021052792</div>
-                                        </div>
+                                        @if (Model.user.Student != null){
+                                            <div class="div-wrapper">
+                                                <div class="text-2">@Model.user.Student.Id</div>
+                                            </div>
+                                        
                                         <div class="card-text">
-                                            <div class="text-3">Estudiante-Administrador</div>
+                                            <div class="text-3">Estudiante</div>
                                             <div class="min-width-change">
                                                 <div class="ignore"></div>
                                                 <div class="ignore"></div>
                                             </div>
                                         </div>
+                                        }
+                                        @if (Model.user.Employee != null)
+                                        {
+                                            <div class="div-wrapper">
+                                                <div class="text-2">@Model.user.Employee.Id</div>
+                                            </div>
+
+                                            <div class="card-text">
+                                                @if (Model.user.Employee.IsProfessor)
+                                                {
+                                                    <div class="text-3">Profesor</div>
+                                                    <div class="min-width-change">
+                                                        <div class="ignore"></div>
+                                                        <div class="ignore"></div>
+                                                    </div>
+                                                }else{
+                                                    <div class="text-3">Administrativo</div>
+                                                    <div class="min-width-change">
+                                                        <div class="ignore"></div>
+                                                        <div class="ignore"></div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
                                         <div class="layout-blocks">
                                             <div class="div-wrapper-2">
                                                 <div class="wrapper-2">
@@ -56,10 +79,10 @@
                                                                 <div class="ignore"></div>
                                                                 <div class="ignore"></div>
                                                             </div>
-                                                            <div class="icon-wrapper">
+                                                            <!--<div class="icon-wrapper">
                                                                 <img class="union"
                                                                      src="img/union.svg" />
-                                                            </div>
+                                                            </div-->
                                                         </div>
                                                     </div>
                                                     <div class="text-4">@Model.user.Email</div>
@@ -86,10 +109,10 @@
                                         <div class="button-list">
                                             <button class="button">
                                                 <div class="div-wrapper-2">
-                                                    <div class="text-5">
-                                                        Modificar&nbsp;&nbsp;(Redirecciona a
-                                                        modficar contraseña)
-                                                    </div>
+                                                    <!--<div class="text-5">
+                                                        Modificar Contraseña
+                                                    </div>-->
+                                                    <a class="text-5" asp-page="/Login">Login</a>
                                                 </div>
                                             </button>
                                         </div>

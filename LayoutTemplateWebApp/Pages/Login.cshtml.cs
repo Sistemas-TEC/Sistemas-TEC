@@ -43,7 +43,7 @@ namespace LayoutTemplateWebApp.Pages
 
             CookieOptions options = new CookieOptions
             {
-                Expires = DateTime.Now.AddDays(1) // Cookie will expire in 1 day
+                Expires = DateTime.Now.AddMinutes(30) // Cookie will expire in 30 minutes
             };
 
             Response.Cookies.Append("email", email, options);
