@@ -26,16 +26,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @{
 
-                        var requestArea = false;
+                        var showApplications = false;
                         var loginActive = Context.Request.Path.Value.Contains("/Login");
+                        var applicationMenuActive = Context.Request.Path.Value.Contains("/ApplicationMenu");
                         var option1IsActive = Context.Request.Path.Value.Contains("/Option1");
                         var option2IsActive = Context.Request.Path.Value.Contains("/Option2");
                         var option3IsActive = Context.Request.Path.Value.Contains("/Option3");
-                        
 
-                        if (loginActive)
+
+                        if (applicationMenuActive)
                         {
-                            requestArea = true;
+                            showApplications = true;
                         }
 
                     }
@@ -69,62 +70,53 @@
 
     <div class="page d-flex flex-row bg-grayContrast">
         <aside class="site-bar bg-white">
-
-
-
-
             <ul class="d-flex flex-column gap-3 px-0 py-2">
 
                 @* //Aside section for Admin Gestion solicitudes *@
-                @if (requestArea)
+                @if (!showApplications)
                 {
                     <li class="py-2 inline-nav-item ">
-                        <a class="aside-link" asp-area="" asp-page="Login">
-
-                        </a>
+                        <!--<a class="aside-link" asp-area="" asp-page="Login">
+                            Login
+                        </a>-->
                     </li>
 
                 }
 
                 else
                 {
-                    <li class="py-2 inline-nav-item ">
-                        <i class="bi bi-people-fill"></i>
-                        Reservacion de Canchas
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Emparejatec
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Gestor de Asambleas Estudiantiles
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Gestor de Operadores
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        PDF Printer
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Gestor de Eventos
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Integratec
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Base de Datos
-                    </li>
-                    <li class="py-2 bg-footer inline-nav-item-nd">
-                        <i class="bi bi-people-fill"></i>
-                        Gestor de Roles
-                    </li>
+                    <form method="post">
+                        <li class="py-2 inline-nav-item" >
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Cancherks">Reservacion de Canchas</a>
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd" >
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Emparejatec">Emparejatec</a>
 
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Asambleas">Asambleas Estudiantiles</a>
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Asambleas">Gestor de Operadores</a>
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/PDFPrinter">PDF Printer</a>
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Eventos">Eventos Tec</a>
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Integratec">Integratec</a>
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Visualizador">Asambleas Estudiantiles</a>
+                            Visualizador de información
+                        </li>
+                        <li class="py-2 bg-footer inline-nav-item-nd">
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/Roles">Asignación de Roles</a>
+                            
+                        </li>
+                    </form>
                     
 
 

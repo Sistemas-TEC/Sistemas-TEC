@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/ApplicationMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbGljYXRpb25NZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +38,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Option3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3B0aW9uMy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/PagesSistemaTec/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNTaXN0ZW1hVGVjXENyZWF0ZVVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/PagesSistemaTec/PopUpCreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZXNTaXN0ZW1hVGVjXFBvcFVwQ3JlYXRlVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/PasswordChange.cshtml]

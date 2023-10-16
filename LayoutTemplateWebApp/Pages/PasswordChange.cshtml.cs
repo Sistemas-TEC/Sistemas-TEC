@@ -33,9 +33,9 @@ namespace LayoutTemplateWebApp.Pages
             {
                 return;
             }
-            Debug.WriteLine(OldPassword);
-            Debug.WriteLine(result);
-            Debug.WriteLine(email);
+            //Debug.WriteLine(OldPassword);
+            //Debug.WriteLine(result);
+            //Debug.WriteLine(email);
             return;
         }
         

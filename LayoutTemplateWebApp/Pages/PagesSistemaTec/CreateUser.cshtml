@@ -1,0 +1,45 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.PagesSistemaTec.Pages_PagesSistemaTec_CreateUser
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="container px-5 py-3" style="margin-top: 0px; margin-left: 10px; margin-right: auto;">
+    <h3 style="form-label: 3rem;">
+        Ingrese aquí sus datos. Y presione el botón correspondiente al tipo de usuario que desea crear.Todos los campos deben ser llenados excepto carnet si no es estudiante
+    </h3>
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                               
+                    
+                <div class="mb-3">
+                    <label class="form-label">Correo</label>
+                    <input class="form-control" placeholder="Correo" style="border: 5px solid #E6F2FB;">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input class="form-control" placeholder="Contraseña" style="border: 5px solid #E6F2FB;">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input class="form-control" placeholder="Nombre" style="border: 5px solid #E6F2FB;">
+                    <label class="form-label">Primer Apellido</label>
+                    <input class="form-control" placeholder="Primer Apellido" style="border: 5px solid #E6F2FB;">
+                    <label class="form-label">Segundo Apellido</label>
+                    <input class="form-control" placeholder="Segundo Apellido" style="border: 5px solid #E6F2FB;">
+                    <input class="form-control" placeholder="Sede" style="border: 5px solid #E6F2FB;">
+                    <input class="form-control" placeholder="Carrera" style="border: 5px solid #E6F2FB;">
+                    <input class="form-control" placeholder="Asociacion" style="border: 5px solid #E6F2FB;">
+                    <input class="form-control" placeholder="Carnet" style="border: 5px solid #E6F2FB;">
+                </div>
+
+                <p>
+                    <!-- crear página de crear usuarios -->
+                    <button asp-page="Index" type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
+                </p>
+                
+            </form>
+        </div>
+    </div>
+</section>
