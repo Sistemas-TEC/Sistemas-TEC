@@ -28,7 +28,7 @@ namespace LayoutTemplateWebApp.Pages
         public async Task<IActionResult> OnPost(string email, string password)
         {
             
-            Debug.WriteLine("on post call debug" + email + " // " + password);
+            Debug.WriteLine("on post call debug " + email + " // " + password);
 
             var json = JsonConvert.SerializeObject(new { email = email, password = password });
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -36,14 +36,21 @@ namespace LayoutTemplateWebApp.Pages
             var url = "http://www.sistema-tec.somee.com/api/users";
             using var client = new HttpClient();
 
-            //var response = await client.PostAsync(url, data);
-            var response = await client.GetAsync(url);
+            var response = await client.PostAsync(url, data);
+            //var response = await client.GetAsync(url);
             var result = await response.Content.ReadAsStringAsync();
             Debug.WriteLine(result);
 
-            //record Person(string Name, string Occupation);
+            CookieOptions options = new CookieOptions
+            {
+                Expires = DateTime.Now.AddDays(1) // Cookie will expire in 1 day
+            };
 
-            return RedirectToPage("Login");
+            Response.Cookies.Append("email", email, options);
+
+            //return Redirect("https://www.youtube.com");
+            return RedirectToPage("Profile");
         }
     }
 }
+

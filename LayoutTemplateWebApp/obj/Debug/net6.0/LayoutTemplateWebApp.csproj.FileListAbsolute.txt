@@ -39,6 +39,8 @@ C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\bin\D
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\bin\Debug\net6.0\LayoutTemplateWebApp.runtimeconfig.json
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\bin\Debug\net6.0\LayoutTemplateWebApp.dll
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\bin\Debug\net6.0\LayoutTemplateWebApp.pdb
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.csproj.AssemblyReference.cache
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.AssemblyInfoInputs.cache
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.AssemblyInfo.cs
@@ -57,11 +59,9 @@ C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\D
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\scopedcss\bundle\LayoutTemplateWebApp.styles.css
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\scopedcss\projectbundle\LayoutTemplateWebApp.bundle.scp.css
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.csproj.CopyComplete
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.dll
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\refint\LayoutTemplateWebApp.dll
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.pdb
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.genruntimeconfig.cache
 C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\ref\LayoutTemplateWebApp.dll
-C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.csproj.AssemblyReference.cache
-C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Debug\net6.0\LayoutTemplateWebApp.csproj.CopyComplete

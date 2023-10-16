@@ -3,10 +3,7 @@
     "",
     "\\LayoutTemplateWebApp",
     "\\LayoutTemplateWebApp\\Pages",
-    "\\LayoutTemplateWebApp\\Pages\\Shared",
-    "\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API",
-    "\\Sistema_Tec_Web_API\\Sistema_Tec_Web_API\\Controllers"
+    "\\LayoutTemplateWebApp\\Pages\\Shared"
   ],
-  "SelectedNode": "\\LayoutTemplateWebApp\\Pages\\Shared\\_Layout.cshtml",
   "PreviewInSolutionExplorer": false
 }

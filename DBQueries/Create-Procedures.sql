@@ -98,14 +98,14 @@ BEGIN
     BEGIN TRANSACTION;
     
     BEGIN TRY
-        IF EXISTS (SELECT 1 FROM Application WHERE id = @applicationId) AND NOT EXISTS (SELECT 1 FROM ApplicationRole WHERE applicationRoleName = @applicationRoleName)
+        IF NOT EXISTS (SELECT 1 FROM ApplicationRole WHERE id = @applicationId AND applicationRoleName = @applicationRoleName) AND EXISTS (SELECT 1 FROM Application WHERE id = @applicationId)
 			BEGIN
 				INSERT INTO ApplicationRole (applicationId, applicationRoleName, parentId)
 				VALUES (@applicationId, @applicationRoleName, null);
 			END
         ELSE
 			BEGIN
-				;THROW 60000, 'Un rol con este nombre ya existe o la aplicación no existe.', 1;
+				;THROW 60000, 'Un rol con este nombre para esta aplicación ya existe o la aplicación no existe.', 1;
 			END
         
         COMMIT;
