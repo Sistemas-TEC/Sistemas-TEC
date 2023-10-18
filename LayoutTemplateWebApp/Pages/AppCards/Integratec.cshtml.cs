@@ -5,8 +5,20 @@ namespace LayoutTemplateWebApp.Pages.AppCards
 {
     public class IntegratecModel : PageModel
     {
-        public void OnGet()
+        public ActionResult OnGet()
         {
+
+            string email = Request.Cookies["email"];
+            if (email.Contains("@estudiantec.cr"))
+            {
+                string url = "http://sama.somee.com/";
+
+                return Redirect(url + email);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

@@ -50,7 +50,7 @@ namespace LayoutTemplateWebApp.Pages
                 return null;
             }
             var json = JsonConvert.SerializeObject(new { email = email, password = password, name = name, firstLastName = firstLastName, secondLastName = secondLastName, 
-                                                    id = id, degreeId = degreeId, studentId = studentId, isExemptFromPrintingCosts = isExemptFromPrintingCosts
+                                                    id = id, degreeId = degreeId, studentId = studentId, isExemptFromPrintingCosts = isExemptFromPrintingCosts, isProfessor = "false"
             });
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
