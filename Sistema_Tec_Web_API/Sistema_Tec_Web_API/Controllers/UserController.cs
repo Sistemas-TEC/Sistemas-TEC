@@ -560,7 +560,7 @@ namespace Sistema_Tec_Web_API.Controllers
 
                 if (departmentId != null)
                 {
-                    departmentList = await _context.Departments.Where(s => s.id == int.Parse(departmentId)).ToListAsync(); ;
+                    departmentList = await _context.Departments.Where(s => s.id == int.Parse(departmentId)).ToListAsync();
                     if (departmentList.Count == 0)
                     {
                         return Ok("noDepartment");
@@ -569,7 +569,7 @@ namespace Sistema_Tec_Web_API.Controllers
 
                 if (schoolId != null)
                 {
-                    schoolList = await _context.Schools.Where(s => s.id == int.Parse(schoolId)).ToListAsync(); ;
+                    schoolList = await _context.Schools.Where(s => s.id == int.Parse(schoolId)).ToListAsync();
                     if (schoolList.Count == 0)
                     {
                         return Ok("noSchool");
