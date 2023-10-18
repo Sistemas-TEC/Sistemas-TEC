@@ -11,6 +11,6 @@ namespace LayoutTemplateWebApp.Pages
         {
         }
 
-        public void OnPostCancherks() { Debug.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"); }
+        public void OnPostCancherks() { Debug.WriteLine(""); }
     }
 }

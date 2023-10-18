@@ -1,0 +1,9 @@
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\LayoutTemplateWebApp.exe
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\libman.json
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\LayoutTemplateWebApp.dll
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\LayoutTemplateWebApp.deps.json
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\LayoutTemplateWebApp.runtimeconfig.json
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\LayoutTemplateWebApp.pdb
+C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll

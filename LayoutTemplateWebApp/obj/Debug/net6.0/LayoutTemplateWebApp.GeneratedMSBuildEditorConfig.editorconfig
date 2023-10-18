@@ -16,8 +16,52 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\andre\source\repos\Sistemas-TEC\Sistemas-TEC\LayoutTemplateWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Asambleas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcQXNhbWJsZWFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Cancherks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcQ2FuY2hlcmtzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Emparejatec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcRW1wYXJlamF0ZWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Eventos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcRXZlbnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Integratec.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcSW50ZWdyYXRlYy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Operadores.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcT3BlcmFkb3Jlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/PDFPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcUERGUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Roles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/AppCards/Visualizador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwQ2FyZHNcVmlzdWFsaXphZG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/ApplicationMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbGljYXRpb25NZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/ChooseUserType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hvb3NlVXNlclR5cGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/CreateStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlU3R1ZGVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/Index.cshtml]

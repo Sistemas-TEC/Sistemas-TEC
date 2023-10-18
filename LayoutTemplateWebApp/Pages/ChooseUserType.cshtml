@@ -1,0 +1,27 @@
+﻿@page
+@model ChooseUserTypeModel
+@{
+}
+
+<section class="container px-5 py-3" style="margin-top: 250px; margin-left: auto; margin-right: -100px;">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="text-center">
+                    <p>
+                        <!-- crear página de crear usuarios -->
+                        <button asp-page="CreateStudent" type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Estudiante</button>
+                    </p>
+                    <p>
+                        <!-- crear página de crear usuarios -->
+                        <button asp-page="CreateStudent" type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Administrativo</button>
+                    </p>
+                    <p>
+                        <!-- crear página de crear usuarios -->
+                        <button asp-page="CreateStudent" type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Profesor</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

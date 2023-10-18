@@ -9,12 +9,27 @@
         <div class="col-md-6">
             <form method="post">
                 <div class="text-center">
-                    
-                    <div class="mb-3">
-                        <label asp-for="@Model.email">Correo</label>
-                        <input asp-for="@Model.email" class="form-control" placeholder="Correo" style="border: 5px solid #E6F2FB;">
+                    @{
+                        if (Model.showErrorMsg == true){
 
+                            <div class="mb-3">
+                                <label >El nombre de usuario y contraseña no pueden ir vacíos</label>
+                            </div>
+
+                        }
+                        else if (Model.showIncorrect == true)
+                        {
+                            <div class="mb-3">
+                                <label >El nombre de usuario o contraseña son incorrectos</label>
+                            </div>
+                        }
+
+                    }
+                    <div class="mb-3">
+                        <label asp-for="@Model.email">Error</label>
+                        <input asp-for="@Model.email" class="form-control" placeholder="Correo" style="border: 5px solid #E6F2FB;">
                     </div>
+                    
                     <div class="mb-3">
                         <label asp-for="@Model.password" class="form-label">Contraseña</label>
                         <input asp-for="@Model.password" class="form-control" placeholder="Contraseña" style="border: 5px solid #E6F2FB">
@@ -24,11 +39,11 @@
                         <button type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Ingresar</button>
                     </p>
                     <p>
-                        <!-- crear página de crear usuarios -->
-                        <button asp-page="Index" type="submit" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
+                        <button type="submit" asp-page-handler="NavigateToCreateUser" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal">Crear Usuario</button>
                     </p>
                 </div>
             </form>
         </div>
     </div>
 </section>
+

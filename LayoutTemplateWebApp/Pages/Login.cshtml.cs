@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -14,21 +15,31 @@ namespace LayoutTemplateWebApp.Pages
         public string email { get; set; }
         public string password { get; set; }
 
+        public bool showErrorMsg = false;
 
+        public bool showIncorrect = false;
         public LoginModel()
         {
         }
 
         public void OnGet()
         {
-            Debug.WriteLine("on get call debug");
-            System.Console.Write("onget call");
+            //Debug.WriteLine("on get call debug");
+        }
+
+        public async Task<IActionResult> OnPostNavigateToCreateUser()
+        {
+            return RedirectToPage("ChooseUserType");
         }
 
         public async Task<IActionResult> OnPost(string email, string password)
         {
             Debug.WriteLine("on post call debug " + email + " // " + password);
-
+            if (email == null || password == null)
+            {
+                showErrorMsg = true;
+                return null;
+            }
             var json = JsonConvert.SerializeObject(new { email = email, password = password });
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -38,18 +49,23 @@ namespace LayoutTemplateWebApp.Pages
             var response = await client.PostAsync(url, data);
             //var response = await client.GetAsync(url);
             var result = await response.Content.ReadAsStringAsync();
+
             Debug.WriteLine(result);
 
             CookieOptions options = new CookieOptions
             {
-                Expires = DateTime.Now.AddMinutes(30) // Cookie will expire in 30 minutes
+                Expires = DateTime.Now.AddMinutes(5) // Sets cookie expiration
             };
 
             Response.Cookies.Append("email", email, options);
-
             //return Redirect("https://www.youtube.com");
-            if (result != "" ) { return RedirectToPage("Profile"); }
-            return RedirectToPage("Login");
+            if (result == "" ) {
+                showIncorrect = true;
+                return null;
+            }
+            showErrorMsg = false;
+            showIncorrect = false;
+            return RedirectToPage("ApplicationMenu");
         }
     }
 }

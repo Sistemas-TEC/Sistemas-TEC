@@ -512,6 +512,170 @@ namespace Sistema_Tec_Web_API.Controllers
             return Ok(null);
         }
 
+        [HttpPost("/insert")]
+        public async Task<ActionResult<User>> Insert(LoginBody data)
+        {
+            if (_context.People == null)
+            {
+                return Ok(null);
+            }
+
+            string id = data.email;
+            string password = data.password;
+
+            var peopleXStudent = await _context.People.Where(p => p.email == id)
+            .Where(p => _context.Students.Any(s => s.email == id))
+            .Include(p => p.Student.degree)
+            .Select(p => new Person
+            {
+                email = p.email,
+                id = p.id,
+                personPassword = p.personPassword,
+                personName = p.personName,
+                firstLastName = p.firstLastName,
+                secondLastName = p.secondLastName,
+                debt = p.debt,
+                applicationRoles = p.applicationRoles,
+                departments = p.departments,
+                schools = p.schools,
+                Student = _context.Students.FirstOrDefault(s => s.email == id)
+            })
+            .ToListAsync();
+
+            var peopleXEmployee = await _context.People.Where(p => p.email == id)
+            .Where(p => _context.Employees.Any(s => s.email == id))
+            .Include(p => p.applicationRoles)
+            .Include(p => p.departments)
+            .Include(p => p.schools)
+            .Select(p => new Person
+            {
+                email = p.email,
+                id = p.id,
+                personPassword = p.personPassword,
+                personName = p.personName,
+                firstLastName = p.firstLastName,
+                secondLastName = p.secondLastName,
+                debt = p.debt,
+                applicationRoles = p.applicationRoles,
+                departments = p.departments,
+                schools = p.schools,
+                Employee = _context.Employees.FirstOrDefault(s => s.email == id)
+            })
+
+            .ToListAsync();
+
+
+            peopleXStudent.AddRange(peopleXEmployee);
+            List<UserApplicationRole> userApplicationRolesList;
+            List<UserDepartment> userDepartmentList;
+            List<UserSchool> userSchoolList;
+            List<User> userList = new List<User>();
+            foreach (var person in peopleXStudent)
+            {
+                if (person == null)
+                {
+                    continue;
+                }
+                if (person.email == id && person.personPassword == password)
+                {
+                    userDepartmentList = new List<UserDepartment>();
+                    userSchoolList = new List<UserSchool>();
+                    userApplicationRolesList = new List<UserApplicationRole>();
+                    foreach (var appRole in person.applicationRoles)
+                    {
+                        appRole.emails = null;
+                        appRole.application = null;
+
+                        var applicationMatch = _context.Applications.FirstOrDefault(s => s.id == appRole.applicationId);
+                        applicationMatch.ApplicationRoles = null;
+                        UserApplicationRole userApplicationRole = new UserApplicationRole
+                        {
+                            id = appRole.id,
+                            applicationId = appRole.applicationId,
+                            applicationRoleName = appRole.applicationRoleName,
+                            applicationName = applicationMatch.applicationName
+                        };
+                        userApplicationRolesList.Add(userApplicationRole);
+                    }
+
+                    foreach (var department in person.departments)
+                    {
+                        department.emails = null;
+
+                        var campusMatch = _context.Campuses.FirstOrDefault(s => s.id == department.campusId);
+                        campusMatch.Departments = null;
+                        campusMatch.Schools = null;
+                        UserDepartment userDepartment = new UserDepartment
+                        {
+                            id = department.id,
+                            departmentName = department.departmentName,
+                            campusId = department.campusId,
+                            campusName = campusMatch.campusName
+                        };
+                        userDepartmentList.Add(userDepartment);
+                    }
+
+                    foreach (var school in person.schools)
+                    {
+                        school.emails = null;
+
+                        var campusMatch = _context.Campuses.FirstOrDefault(s => s.id == school.campusId);
+                        campusMatch.Departments = null;
+                        campusMatch.Schools = null;
+                        UserSchool userSchool = new UserSchool
+                        {
+                            id = school.id,
+                            schoolName = school.schoolName,
+                            campusId = school.campusId,
+                            campusName = campusMatch.campusName
+                        };
+                        userSchoolList.Add(userSchool);
+                    }
+
+                    UserEmployee userEmployee = null;
+                    if (person.Employee != null)
+                    {
+                        userEmployee = new UserEmployee
+                        {
+                            id = person.Employee.id,
+                            isProfessor = person.Employee.isProfessor
+                        };
+                    }
+                    UserStudent userStudent = null;
+                    if (person.Student != null)
+                    {
+                        var degree = _context.Degrees.FirstOrDefault(d => d.id == person.Student.degreeId);
+                        userStudent = new UserStudent
+                        {
+                            id = person.Student.id,
+                            degreeName = degree.degreeName,
+                            degreeId = person.Student.degreeId,
+                            isExemptFromPrintingCosts = person.Student.isExemptFromPrintingCosts
+                        };
+                    }
+
+
+                    User user = new User
+                    {
+                        email = person.email,
+                        id = person.id,
+                        personName = person.personName,
+                        firstLastName = person.firstLastName,
+                        secondLastName = person.secondLastName,
+                        debt = person.debt,
+                        departments = userDepartmentList,
+                        schools = userSchoolList,
+                        applicationRoles = userApplicationRolesList,
+                        employee = userEmployee,
+                        student = userStudent
+                    };
+                    return Ok(user);
+                }
+            }
+            return Ok(null);
+        }
+
+
         // GET: api/Users
         [HttpPut]
         public async Task<ActionResult<bool>> Change_Password(LoginBody data)
