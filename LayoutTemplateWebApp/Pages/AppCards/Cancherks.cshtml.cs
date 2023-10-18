@@ -13,7 +13,7 @@ namespace LayoutTemplateWebApp.Pages.AppCards
             var url = "http://www.sistema-tec.somee.com/api/applications/";
             using var client = new HttpClient();
             Debug.WriteLine(url);
-            var response = await client.GetAsync(url + '2');
+            var response = await client.GetAsync(url + "2");
             var result = await response.Content.ReadAsStringAsync();
 
             if (result == null)

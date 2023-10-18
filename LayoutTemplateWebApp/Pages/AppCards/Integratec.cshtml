@@ -2,3 +2,20 @@
 @model LayoutTemplateWebApp.Pages.AppCards.IntegratecModel
 @{
 }
+<section class="container px-5 py-3" style="float: left;">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="text-left">
+                    <div class="mb-3">
+                        <h1>@Model.application.ApplicationName</h1>
+                        <label>@Model.application.Description</label>
+                    </div>
+                    <p>
+                        <button type="submit" asp-page-handler="NavigateToPage" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal">Ir a la aplicación</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

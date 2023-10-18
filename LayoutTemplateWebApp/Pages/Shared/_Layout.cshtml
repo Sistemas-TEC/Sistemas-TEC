@@ -19,7 +19,7 @@
                     <a class="navbar-brand" asp-area="" asp-page="/Index">
                         @* //This could be the link to the inicial app page *@
                         <i class="bi bi-mortarboard-fill"></i>
-                        Menu Principal
+                        Sistema-Tec
                     </a>
                 </div>
                
@@ -69,9 +69,12 @@
                     </button>
 
                 </div>
-                <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
-                    <a asp-page="Profile" class="bi bi-person"></a>
-                </div>
+                @if (isLoggedIn)
+                {
+                    <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
+                        <a asp-page="Profile" class="bi bi-person"></a>
+                    </div>
+                }
 
             </div>
         </nav>
@@ -98,25 +101,25 @@
                     {
                     
                         <li class="py-2 inline-nav-item" >
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Cancherks">Reservacion de Canchas</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Cancherks">Cancherks</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd" >
                             <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Emparejatec">Emparejatec</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Asambleas">Asambleas Estudiantiles</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Asambleas">Gestor de Asambleas</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
                             <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Operadores">Gestor de Operadores</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/PDFPrinter">PDF Printer</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/PDFPrint">PDF Printer</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
                             <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Eventos">Eventos Tec</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Integratec">Integratec</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Integratec">SAMA</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
                             <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Visualizador">Visualizador de base de datos</a>
@@ -124,7 +127,6 @@
                         <li class="py-2 bg-footer inline-nav-item-nd">
                             <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Roles">Asignación de Roles</a>
                         </li>
-                    
                     }
                 
                 </ul>
@@ -132,8 +134,6 @@
         </aside>
         <div class="content-page w-100">
             <main role="main" class="pb-3">
-
-
                 @RenderBody()
             </main>
         </div>
@@ -141,7 +141,7 @@
 
     <footer class="border-top footer text-muted ">
         <div class="container">
-            Información de Contacto\n Correo: andres2028@estudiantec.cr Teléfono: 2020-2020 
+            Información de Contacto Correo:         andres2028@estudiantec.cr Teléfono: 2020-2020 
         </div>
     </footer>
 
