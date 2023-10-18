@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -24,8 +25,15 @@ namespace LayoutTemplateWebApp.Pages
         public bool showIncorrect = false;
         public bool showIdError = false;
         public bool emailError = false;
-        public void OnGet()
+        public async Task  OnGet()
         {
+            var url = "http://www.sistema-tec.somee.com/api/degrees";
+            using var client = new HttpClient();
+
+            var response = await client.GetAsync(url);
+            var result = await response.Content.ReadAsStringAsync();
+
+            Debug.WriteLine(result);
             Debug.WriteLine("get create student");
         }
 
