@@ -348,7 +348,7 @@ namespace Sistema_Tec_Web_API.Controllers
             return Ok(userList[0]);
         }
 
-        // GET: api/Users/5
+    
         [HttpPost]
         public async Task<ActionResult<User>> Login(LoginBody data)
         {
@@ -512,7 +512,125 @@ namespace Sistema_Tec_Web_API.Controllers
             return Ok(null);
         }
 
-        // GET: api/Users
+        [HttpPost("/api/Users/insert")]
+        public async Task<ActionResult<User>> Insert(LoginBody data)
+        {
+            if (_context.People == null)
+            {
+                return Ok(null);
+            }
+
+            string email = data.email;
+            string password = data.password;
+            string name = data.name;
+            string firstLastName = data.firstLastName;
+            string secondLastName = data.secondLastName;
+            string id = data.id;
+            string degreeId = data.degreeId;
+            string studentId = data.studentId;
+            string employeeId = data.employeeId;
+            string isExemptFromPrintingCosts = data.isExemptFromPrintingCosts;
+            string departmentId = data.departmentId;
+            string schoolId = data.schoolId;
+            bool isProfessor = data.isProfessor;
+
+            List<Department> departmentList = new List<Department>();
+            List<School> schoolList = new List<School>();
+            List<Student> studentList = new List<Student>();
+            List<Employee> employeeList = new List<Employee>();
+            List<Degree> degreeList = new List<Degree>();
+            List<Person> personList = new List<Person>();
+
+            if (email != null)
+            {
+                personList = await _context.People.Where(p => p.email == email || p.id == int.Parse(id)).ToListAsync();
+                if (personList.Count > 0)
+                {
+                    return Ok("idExists");
+                }
+            }
+
+            if (employeeId != null)
+            {
+                employeeList = await _context.Employees.Where(s => s.id == int.Parse(employeeId)).ToListAsync();
+                if (employeeList.Count > 0)
+                {
+                    return Ok("employeeIdExists");
+                }
+
+                if (departmentId != null)
+                {
+                    departmentList = await _context.Departments.Where(s => s.id == int.Parse(departmentId)).ToListAsync();
+                    if (departmentList.Count == 0)
+                    {
+                        return Ok("noDepartment");
+                    }
+                }
+
+                if (schoolId != null)
+                {
+                    schoolList = await _context.Schools.Where(s => s.id == int.Parse(schoolId)).ToListAsync();
+                    if (schoolList.Count == 0)
+                    {
+                        return Ok("noSchool");
+                    }
+                }
+            }
+
+            if (studentId != null)
+            {
+                studentList = await _context.Students.Where(s => s.id == int.Parse(studentId)).ToListAsync();
+                if (studentList.Count > 0)
+                {
+                    return Ok("studentIdExists");
+                }
+                if (degreeId != null)
+                {
+                    degreeList = await _context.Degrees.Where(s => s.id == int.Parse(degreeId)).ToListAsync(); ;
+                    if (degreeList.Count == 0)
+                    {
+                        return Ok("noDegree");
+                    }
+                }
+                
+            }
+
+            _context.People.Add(new Person
+            {
+                email = email,
+                id = int.Parse(id),
+                personPassword = password,
+                personName = name,
+                firstLastName = firstLastName,
+                secondLastName = secondLastName,
+                debt = 0
+            });
+            _context.SaveChanges();
+            if (studentId != null)
+            {
+
+                _context.Students.Add(new Student
+                {
+                    email = email,
+                    id = int.Parse(studentId),
+                    isExemptFromPrintingCosts = false,
+                    degreeId = int.Parse(degreeId)
+                });
+                _context.SaveChanges();
+            }
+            if (employeeId != null)
+            {
+                _context.Employees.Add(new Employee
+                {
+                    email = email,
+                    id = int.Parse(employeeId),
+                    isProfessor = isProfessor
+                });
+                _context.SaveChanges();
+            }
+            return Ok("ok");
+        }
+
         [HttpPut]
         public async Task<ActionResult<bool>> Change_Password(LoginBody data)
         {

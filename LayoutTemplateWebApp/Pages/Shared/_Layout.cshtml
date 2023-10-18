@@ -19,7 +19,7 @@
                     <a class="navbar-brand" asp-area="" asp-page="/Index">
                         @* //This could be the link to the inicial app page *@
                         <i class="bi bi-mortarboard-fill"></i>
-                        Menu Principal
+                        Sistema-Tec
                     </a>
                 </div>
                
@@ -28,40 +28,53 @@
 
                         var showApplications = false;
                         var loginActive = Context.Request.Path.Value.Contains("/Login");
+                        bool isLoggedIn = false;
+                        if (Context.Request.Cookies.ContainsKey("email"))
+                        {
+                            var cookie = Context.Request.Cookies["email"];
+                            if (cookie != "")
+                            {
+                                isLoggedIn = true;
+                            }
+                        }
+
                         var applicationMenuActive = Context.Request.Path.Value.Contains("/ApplicationMenu");
                         var option1IsActive = Context.Request.Path.Value.Contains("/Option1");
                         var option2IsActive = Context.Request.Path.Value.Contains("/Option2");
-                        var option3IsActive = Context.Request.Path.Value.Contains("/Option3");
-
-
-                        if (applicationMenuActive)
-                        {
-                            showApplications = true;
-                        }
-
+                        var chooseUser = Context.Request.Path.Value.Contains("/Choose");
+                        var createUserIsActive = Context.Request.Path.Value.Contains("/Create");
                     }
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link @(loginActive ? "activeNav" : "")" asp-area="" asp-page="/Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(option1IsActive ? "activeNav" : "")" asp-area="" asp-page="/Option1">Option1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(option2IsActive ? "activeNav" : "")" asp-area="" asp-page="/Option2">Option2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @(option3IsActive ? "activeNav" : "")" asp-area="" asp-page="/Option3">Option3</a>
-                        </li>
-
+                        @if (isLoggedIn)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(loginActive ? "activeNav" : "")" asp-area="" asp-page="/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(loginActive ? "activeNav" : "")" asp-area="" asp-page="/ApplicationMenu">Applications</a>
+                            </li>
+                        }
+                        
                     </ul>
                 </div>
-                <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
-                    <i class="bi bi-person"></i>
+                <!-- Accesibility Icons -->
+                <div class="text-center align-middle text-black mx-1">
+                    <!-- Interactive icons represented as buttons -->
+                    <button id="highContrast" class="icon-button bi bi-brightness-high-fill" aria-label="Alto constraste" style="cursor: pointer;" onclick="applyHighContrast()">
+                    </button>
+                    <button id="zoom-icon" class="icon-button bi bi-zoom-in" aria-label="Aumentar Tamaño de letra" style="cursor: pointer;" onclick="zoomIn()">
+                    </button>
+                    <button id="zoom-icon" class="icon-button bi bi-zoom-out" aria-label="Disminuir Tamaño de letra" style="cursor: pointer;" onclick="zoomOut()">
+                    </button>
+
                 </div>
-
-
+                @if (isLoggedIn)
+                {
+                    <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
+                        <a asp-page="Profile" class="bi bi-person"></a>
+                    </div>
+                }
 
             </div>
         </nav>
@@ -70,66 +83,57 @@
 
     <div class="page d-flex flex-row bg-grayContrast">
         <aside class="site-bar bg-white">
-            <ul class="d-flex flex-column gap-3 px-0 py-2">
+            <form method="post">
+                <ul class="d-flex flex-column gap-3 px-0 py-2">
 
-                @* //Aside section for Admin Gestion solicitudes *@
-                @if (!showApplications)
-                {
-                    <li class="py-2 inline-nav-item ">
-                        <!--<a class="aside-link" asp-area="" asp-page="Login">
-                            Login
-                        </a>-->
-                    </li>
+                    @* //Aside section for Admin Gestion solicitudes *@
+                    @if (!applicationMenuActive)
+                    {
+                        <li class="py-2 inline-nav-item ">
+                            <!--<a class="aside-link" asp-area="" asp-page="Login">
+                                Login
+                            </a>-->
+                        </li>
 
-                }
+                    }
 
-                else
-                {
-                    <form method="post">
+                    else
+                    {
+                    
                         <li class="py-2 inline-nav-item" >
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Cancherks">Reservacion de Canchas</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Cancherks">Cancherks</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd" >
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Emparejatec">Emparejatec</a>
-
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Emparejatec">Emparejatec</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Asambleas">Asambleas Estudiantiles</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Asambleas">Gestor de Asambleas</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Asambleas">Gestor de Operadores</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Operadores">Gestor de Operadores</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/PDFPrinter">PDF Printer</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/PDFPrint">PDF Printer</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Eventos">Eventos Tec</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Eventos">Eventos Tec</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Integratec">Integratec</a>
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Integratec">SAMA</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Visualizador">Asambleas Estudiantiles</a>
-                            Visualizador de información
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Visualizador">Visualizador de base de datos</a>
                         </li>
                         <li class="py-2 bg-footer inline-nav-item-nd">
-                            <a class="bi bi-people-fill" asp-area="" asp-page="/Roles">Asignación de Roles</a>
-                            
+                            <a class="bi bi-people-fill" asp-area="" asp-page="/AppCards/Roles">Asignación de Roles</a>
                         </li>
-                    </form>
-                    
-
-
-
-                }
+                    }
                 
-            </ul>
-           
+                </ul>
+            </form>
         </aside>
         <div class="content-page w-100">
             <main role="main" class="pb-3">
-
-
                 @RenderBody()
             </main>
         </div>
@@ -137,7 +141,7 @@
 
     <footer class="border-top footer text-muted ">
         <div class="container">
-            Correo: example@itcr.ac.cr Teléfono: 2020-2020 
+            Información de Contacto Correo:         andres2028@estudiantec.cr Teléfono: 2020-2020 
         </div>
     </footer>
 
@@ -149,5 +153,12 @@
 
   
     @await RenderSectionAsync("Scripts", required: false)
+    @{
+        if (!isLoggedIn && !loginActive && !createUserIsActive && !chooseUser)
+        {
+            Context.Response.Redirect("Login");
+        }
+    }
 </body>
+
 </html>

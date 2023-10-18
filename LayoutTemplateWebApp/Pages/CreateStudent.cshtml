@@ -1,0 +1,84 @@
+﻿@page
+@model CreateStudentModel
+@{
+}
+
+<section class="container px-5 py-3" style="margin-top: 250px; margin-left: auto; margin-right: -100px;">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="text-center">
+                    @{
+                        if (Model.showErrorMsg == true)
+                        {
+                            <div class="mb-3">
+                                <label>Todos los elementos deben ser llenados</label>
+                            </div>
+                        }
+                        else if (Model.showIncorrect == true)
+                        {
+                            <div class="mb-3">
+                                <label>Hubo un error en la solicitud</label>
+                            </div>
+                        }
+                        else if (Model.showIdError == true)
+                        {
+                            <div class="mb-3">
+                                <label>La identificación y carnet solo pueden contener números y debe ser un número menor a 2,147,483,647</label>
+                            </div>
+                        }
+                        else if (Model.emailError == true)
+                        {
+                            <div class="mb-3">
+                                <label>El correo debe ser de estudiantec.cr</label>
+                            </div>
+                        }
+
+                    }
+                    <div class="mb-3">
+                        <label asp-for="@Model.email">Correo</label>
+                        <input asp-for="@Model.email" class="form-control" placeholder="Correo" style="border: 5px solid #E6F2FB;">
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.password" class="form-label">Contraseña</label>
+                        <input asp-for="@Model.password" class="form-control" placeholder="Contraseña" style="border: 5px solid #E6F2FB">
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.name" class="form-label">Nombre</label>
+                        <input asp-for="@Model.name" class="form-control" placeholder="Nombre" style="border: 5px solid #E6F2FB">
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.firstLastName" class="form-label">Primer Apellido</label>
+                        <input asp-for="@Model.firstLastName" class="form-control" placeholder="Primer Apellido" style="border: 5px solid #E6F2FB">
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.secondLastName" class="form-label">Segundo Apellido</label>
+                        <input asp-for="@Model.secondLastName" class="form-control" placeholder="Segundo Apellido" style="border: 5px solid #E6F2FB">
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.id" class="form-label">Identificación</label>
+                        <input asp-for="@Model.id" class="form-control" placeholder="Identificación" style="border: 5px solid #E6F2FB">
+
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="@Model.degreeId" class="form-label">ID Carrera</label>
+                        <input asp-for="@Model.degreeId" class="form-control" placeholder="ID Carrera" style="border: 5px solid #E6F2FB">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="@Model.studentId" class="form-label">Carnet</label>
+                        <input asp-for="@Model.studentId" class="form-control" placeholder="Carnet" style="border: 5px solid #E6F2FB">
+                    </div>
+                    <p>
+                        <button type="submit" asp-page-handler="Student" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

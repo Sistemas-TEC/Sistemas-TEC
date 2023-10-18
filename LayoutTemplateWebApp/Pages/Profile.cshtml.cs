@@ -18,8 +18,8 @@ namespace LayoutTemplateWebApp.Pages
             {
                 return;
             }
-            var json = JsonConvert.SerializeObject(new { email = email});
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            //var json = JsonConvert.SerializeObject(new { email = email});
+            //var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var url = "http://www.sistema-tec.somee.com/api/users/";
             using var client = new HttpClient();
@@ -36,7 +36,7 @@ namespace LayoutTemplateWebApp.Pages
             }
             
             user = Models.QuickType.User.FromJson(result);
-            Debug.WriteLine(user.ApplicationRoles[0].ApplicationName);
+            
             Debug.WriteLine(email);
             return;
         }

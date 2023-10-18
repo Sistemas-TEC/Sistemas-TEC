@@ -119,5 +119,29 @@ namespace Sistema_Tec_Web_API.Controllers
         {
             return (_context.ApplicationRoles?.Any(e => e.id == id)).GetValueOrDefault();
         }
+
+        [HttpPost("{roleId}/{email}")]
+        public async Task<ActionResult<ApplicationRole>> AssignApplicationRole(int roleId, string email)
+        {
+            if (_context.ApplicationRoles == null)
+            {
+                return NotFound();
+            }
+            if (_context.People == null)
+            {
+                return NotFound();
+            }
+            var peopleList = await _context.People.Where(p => p.email == email).ToListAsync();
+            var roleList = await _context.People.Where(p => p.email == email).ToListAsync();
+
+            if (peopleList.Count() > 0 && roleList.Count() > 0)
+            {
+                await _context.Database.ExecuteSqlRawAsync("INSERT INTO PersonXApplicationRole(email, applicationRoleId) VALUES (@p0, @p1)", email, roleId);
+                await _context.SaveChangesAsync();
+            }
+
+            return Ok();
+        }
+
     }
 }
