@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hvb3NlVXNlclR5cGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/CreateProfessor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUHJvZmVzc29yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/andre/source/repos/Sistemas-TEC/Sistemas-TEC/LayoutTemplateWebApp/Pages/CreateStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlU3R1ZGVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

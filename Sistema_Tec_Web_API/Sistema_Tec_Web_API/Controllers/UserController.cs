@@ -532,6 +532,7 @@ namespace Sistema_Tec_Web_API.Controllers
             string isExemptFromPrintingCosts = data.isExemptFromPrintingCosts;
             string departmentId = data.departmentId;
             string schoolId = data.schoolId;
+            bool isProfessor = data.isProfessor;
 
             List<Department> departmentList = new List<Department>();
             List<School> schoolList = new List<School>();
@@ -623,7 +624,7 @@ namespace Sistema_Tec_Web_API.Controllers
                 {
                     email = email,
                     id = int.Parse(employeeId),
-                    isProfessor = true
+                    isProfessor = isProfessor
                 });
                 _context.SaveChanges();
             }

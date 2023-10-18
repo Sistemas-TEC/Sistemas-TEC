@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Sistema_Tec_Web_API.Models
 {
@@ -18,7 +19,7 @@ namespace Sistema_Tec_Web_API.Models
         public string? degreeId { get; set; }
         public string? studentId { get; set; }
         public string? employeeId { get; set; }
-
+        public bool isProfessor { get; set; }
         public string? isExemptFromPrintingCosts { get; set; }
 
         public string? newPassword { get; set; }

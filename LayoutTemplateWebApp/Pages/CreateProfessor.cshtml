@@ -1,8 +1,7 @@
 ﻿@page
-@model CreateStudentModel
+@model LayoutTemplateWebApp.Pages.CreateProfessorModel
 @{
 }
-
 <section class="container px-5 py-3" style="margin-top: 250px; margin-left: auto; margin-right: -100px;">
     <div class="row">
         <div class="col-md-6">
@@ -30,7 +29,7 @@
                         else if (Model.emailError == true)
                         {
                             <div class="mb-3">
-                                <label>El correo debe ser de estudiantec.cr</label>
+                                <label>El correo debe ser de itcr.ac.cr</label>
                             </div>
                         }
 
@@ -65,16 +64,16 @@
                         <input asp-for="@Model.id" class="form-control" placeholder="Identificación" style="border: 5px solid #E6F2FB">
                     </div>
                     <div class="mb-3">
-                        <label asp-for="@Model.degreeId" class="form-label">ID Carrera</label>
-                        <input asp-for="@Model.degreeId" class="form-control" placeholder="ID Carrera" style="border: 5px solid #E6F2FB">
+                        <label asp-for="@Model.schoolId" class="form-label">ID Escuela</label>
+                        <input asp-for="@Model.schoolId" class="form-control" placeholder="ID Escuela" style="border: 5px solid #E6F2FB">
                     </div>
-                    
+
                     <div class="mb-3">
-                        <label asp-for="@Model.studentId" class="form-label">Carnet</label>
-                        <input asp-for="@Model.studentId" class="form-control" placeholder="Carnet" style="border: 5px solid #E6F2FB">
+                        <label asp-for="@Model.employeeId" class="form-label">Identificador de Empleado</label>
+                        <input asp-for="@Model.employeeId" class="form-control" placeholder="Identificador de Empleado" style="border: 5px solid #E6F2FB">
                     </div>
                     <p>
-                        <button type="submit" asp-page-handler="Student" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
+                        <button type="submit" asp-page-handler="Professor" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
                     </p>
                 </div>
             </form>
