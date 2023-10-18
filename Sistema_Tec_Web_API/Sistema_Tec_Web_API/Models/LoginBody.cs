@@ -17,6 +17,8 @@ namespace Sistema_Tec_Web_API.Models
         public string? schoolId { get; set; }
         public string? degreeId { get; set; }
         public string? studentId { get; set; }
+        public string? employeeId { get; set; }
+
         public string? isExemptFromPrintingCosts { get; set; }
 
         public string? newPassword { get; set; }

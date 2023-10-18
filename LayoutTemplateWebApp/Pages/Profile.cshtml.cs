@@ -36,7 +36,7 @@ namespace LayoutTemplateWebApp.Pages
             }
             
             user = Models.QuickType.User.FromJson(result);
-            Debug.WriteLine(user.ApplicationRoles[0].ApplicationName);
+            
             Debug.WriteLine(email);
             return;
         }

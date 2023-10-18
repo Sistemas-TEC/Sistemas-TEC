@@ -512,7 +512,7 @@ namespace Sistema_Tec_Web_API.Controllers
             return Ok(null);
         }
 
-        [HttpPost("/insert")]
+        [HttpPost("/api/Users/insert")]
         public async Task<ActionResult<User>> Insert(LoginBody data)
         {
             if (_context.People == null)
@@ -528,7 +528,7 @@ namespace Sistema_Tec_Web_API.Controllers
             string id = data.id;
             string degreeId = data.degreeId;
             string studentId = data.studentId;
-            string employeeId = data.studentId;
+            string employeeId = data.employeeId;
             string isExemptFromPrintingCosts = data.isExemptFromPrintingCosts;
             string departmentId = data.departmentId;
             string schoolId = data.schoolId;
@@ -542,19 +542,19 @@ namespace Sistema_Tec_Web_API.Controllers
 
             if (email != null)
             {
-                personList = await _context.People.Where(p => p.email == email).ToListAsync();
-                if (departmentList.Count > 0)
+                personList = await _context.People.Where(p => p.email == email || p.id == int.Parse(id)).ToListAsync();
+                if (personList.Count > 0)
                 {
-                    return Ok("IdExists");
+                    return Ok("idExists");
                 }
             }
 
             if (employeeId != null)
             {
                 employeeList = await _context.Employees.Where(s => s.id == int.Parse(employeeId)).ToListAsync();
-                if (schoolList.Count > 0)
+                if (employeeList.Count > 0)
                 {
-                    return Ok("EmployeeIdExists");
+                    return Ok("employeeIdExists");
                 }
 
                 if (departmentId != null)
@@ -562,17 +562,16 @@ namespace Sistema_Tec_Web_API.Controllers
                     departmentList = await _context.Departments.Where(s => s.id == int.Parse(departmentId)).ToListAsync(); ;
                     if (departmentList.Count == 0)
                     {
-                        return Ok("NoDepartment");
+                        return Ok("noDepartment");
                     }
                 }
-
 
                 if (schoolId != null)
                 {
                     schoolList = await _context.Schools.Where(s => s.id == int.Parse(schoolId)).ToListAsync(); ;
                     if (schoolList.Count == 0)
                     {
-                        return Ok("NoSchool");
+                        return Ok("noSchool");
                     }
                 }
             }
@@ -580,52 +579,55 @@ namespace Sistema_Tec_Web_API.Controllers
             if (studentId != null)
             {
                 studentList = await _context.Students.Where(s => s.id == int.Parse(studentId)).ToListAsync();
-
-                if (schoolList.Count > 0)
+                if (studentList.Count > 0)
                 {
-                    return Ok("StudentIdExists");
+                    return Ok("studentIdExists");
                 }
                 if (degreeId != null)
                 {
                     degreeList = await _context.Degrees.Where(s => s.id == int.Parse(degreeId)).ToListAsync(); ;
-                    if (departmentList.Count == 0)
+                    if (degreeList.Count == 0)
                     {
-                        return Ok("NoDegree");
+                        return Ok("noDegree");
                     }
                 }
+                
             }
 
             _context.People.Add(new Person
             {
-                /*email = email,
+                email = email,
                 id = int.Parse(id),
                 personPassword = password,
                 personName = name,
                 firstLastName = firstLastName,
                 secondLastName = secondLastName,
-                debt = 0,
-                */
+                debt = 0
             });
+            _context.SaveChanges();
             if (studentId != null)
             {
-                /*_context.Students.Add(new Student
+
+                _context.Students.Add(new Student
                 {
                     email = email,
                     id = int.Parse(studentId),
                     isExemptFromPrintingCosts = false,
                     degreeId = int.Parse(degreeId)
-                }); */
+                });
+                _context.SaveChanges();
             }
             if (employeeId != null)
             {
-                /*_context.Employees.Add(new Employee
+                _context.Employees.Add(new Employee
                 {
                     email = email,
                     id = int.Parse(employeeId),
                     isProfessor = true
-                });*/
+                });
+                _context.SaveChanges();
             }
-            return Ok(null);
+            return Ok("ok");
         }
 
         [HttpPut]

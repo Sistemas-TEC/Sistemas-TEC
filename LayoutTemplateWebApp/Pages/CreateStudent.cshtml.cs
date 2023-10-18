@@ -23,6 +23,7 @@ namespace LayoutTemplateWebApp.Pages
         public bool showErrorMsg = false;
         public bool showIncorrect = false;
         public bool showIdError = false;
+        public bool emailError = false;
         public void OnGet()
         {
             Debug.WriteLine("get create student");
@@ -35,8 +36,16 @@ namespace LayoutTemplateWebApp.Pages
             if (email == null || password == null || name == null || firstLastName == null || secondLastName == null || id == null || studentId == null || degreeId == null || isExemptFromPrintingCosts == null)
             {
                 showErrorMsg = true;
+                Debug.WriteLine("campo nulo");
                 return null;
             }
+            else if (!email.Contains("@estudiantec.cr"))
+            {
+                Debug.WriteLine("correo no es estudiantec");
+                emailError = true;
+                return null;
+            }
+
             else if (!Regex.IsMatch(id, @"^[0-9]") || !Regex.IsMatch(studentId, @"^[0-9]"))
             {
                 Debug.WriteLine("No eran números");
@@ -49,6 +58,7 @@ namespace LayoutTemplateWebApp.Pages
                 showIdError = true;
                 return null;
             }
+
             var json = JsonConvert.SerializeObject(new { email = email, password = password, name = name, firstLastName = firstLastName, secondLastName = secondLastName, 
                                                     id = id, degreeId = degreeId, studentId = studentId, isExemptFromPrintingCosts = isExemptFromPrintingCosts, isProfessor = "false"
             });
@@ -60,14 +70,15 @@ namespace LayoutTemplateWebApp.Pages
             var response = await client.PostAsync(url, data);
             var result = await response.Content.ReadAsStringAsync();
 
-            //Debug.WriteLine(result);
+            Debug.WriteLine(result);
+            Debug.WriteLine("aaaaaaaaa");
 
-            CookieOptions options = new CookieOptions
+            /*CookieOptions options = new CookieOptions
             {
                 Expires = DateTime.Now.AddMinutes(5) // Sets cookie expiration
-            };
+            };*/
 
-            Response.Cookies.Append("email", email, options);
+            //Response.Cookies.Append("email", email, options);
             //return Redirect("https://www.youtube.com");
             /*if (result == "")
             {
@@ -76,8 +87,8 @@ namespace LayoutTemplateWebApp.Pages
             }
             showErrorMsg = false;
             showIncorrect = false;*/
-            
-            return RedirectToPage("CreateStudent");
+
+            return RedirectToPage("Login");
 
         }
     }

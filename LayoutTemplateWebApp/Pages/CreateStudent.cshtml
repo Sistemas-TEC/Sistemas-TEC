@@ -27,6 +27,12 @@
                                 <label>La identificación y carnet solo pueden contener números y debe ser un número menor a 2,147,483,647</label>
                             </div>
                         }
+                        else if (Model.emailError == true)
+                        {
+                            <div class="mb-3">
+                                <label>El correo debe ser de estudiantec.cr</label>
+                            </div>
+                        }
 
                     }
                     <div class="mb-3">
@@ -71,7 +77,7 @@
                         <input asp-for="@Model.studentId" class="form-control" placeholder="Carnet" style="border: 5px solid #E6F2FB">
                     </div>
                     <p>
-                        <button type="submit" asp-page-handler="Student" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Ingresar</button>
+                        <button type="submit" asp-page-handler="Student" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal" data-bs-target="#report">Crear Usuario</button>
                     </p>
                 </div>
             </form>
