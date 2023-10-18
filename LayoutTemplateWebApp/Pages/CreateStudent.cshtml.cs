@@ -37,12 +37,12 @@ namespace LayoutTemplateWebApp.Pages
             Debug.WriteLine("get create student");
         }
 
-        public async Task<IActionResult> OnPostStudent(string email, string password, string name, string firstLastName, string secondLastName, string id, string isExemptFromPrintingCosts, string studentId, string degreeId)
+        public async Task<IActionResult> OnPostStudent(string email, string password, string name, string firstLastName, string secondLastName, string id, string studentId, string degreeId)
         {
 
             Debug.WriteLine("on post call debuga " + email + " // " + password + " // " + name + " // " + firstLastName + " // " + secondLastName + " // " + id 
-                            + " // " + studentId + " // " + degreeId + " // " + isExemptFromPrintingCosts);
-            if (email == null || password == null || name == null || firstLastName == null || secondLastName == null || id == null || studentId == null || degreeId == null || isExemptFromPrintingCosts == null)
+                            + " // " + studentId + " // " + degreeId);
+            if (email == null || password == null || name == null || firstLastName == null || secondLastName == null || id == null || studentId == null || degreeId == null)
             {
                 showErrorMsg = true;
                 Debug.WriteLine("campo nulo");

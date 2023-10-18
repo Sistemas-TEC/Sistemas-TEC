@@ -1,0 +1,44 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.RoleManagementModel
+@{
+}
+<section class="container px-5 py-3" style="margin-top: 250px; margin-left: auto; margin-right: -100px;">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="text-center">
+                    @{
+                        if (Model.showErrorMsg == true)
+                        {
+
+                            <div class="mb-3">
+                                <label>El nombre de usuario y contraseña no pueden ir vacíos</label>
+                            </div>
+
+                        }
+                        else if (Model.showCorrect == true)
+                        {
+                            <div class="mb-3">
+                                <label>El rol se asignó correctamente</label>
+                            </div>
+                        }
+
+                    }
+                    <div class="mb-3">
+                        <label asp-for="@Model.email">Correo</label>
+                        <input asp-for="@Model.email" class="form-control" placeholder="Correo" style="border: 5px solid #E6F2FB;">
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="@Model.roleId" class="form-label">Identificador de rol</label>
+                        <input asp-for="@Model.roleId" class="form-control" placeholder="Identificador de rol" style="border: 5px solid #E6F2FB">
+                    </div>
+
+                    <p>
+                        <button type="submit" asp-page-handler="AssignRole" style="background-color: #E6F2FB; border: none;" data-bs-toggle="modal">Crear Usuario</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

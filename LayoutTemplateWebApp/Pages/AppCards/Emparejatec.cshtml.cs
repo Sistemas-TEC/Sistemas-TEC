@@ -26,10 +26,9 @@ namespace LayoutTemplateWebApp.Pages.AppCards
         public ActionResult OnPostNavigateToPage()
         {
             string email = Request.Cookies["email"];
-            string url = "http://www.cancherks.somee.com/";
+            string url = "http://www.emparejatec.somee.com/";
 
-            //return Redirect(url + email);
-            return null;
+            return Redirect(url + email);
         }
     }
 }

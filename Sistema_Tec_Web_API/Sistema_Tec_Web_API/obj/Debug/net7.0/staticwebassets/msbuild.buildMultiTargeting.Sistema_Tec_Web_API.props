@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Sistema_Tec_Web_API.props" />
-</Project>

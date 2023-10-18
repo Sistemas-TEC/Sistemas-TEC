@@ -1,3 +1,4 @@
+using LayoutTemplateWebApp.Models.QuickType;
 using LayoutTemplateWebApp.Models.QuickTypeApplication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,7 +16,7 @@ namespace LayoutTemplateWebApp.Pages.AppCards
             Debug.WriteLine(url);
             var response = await client.GetAsync(url + "10");
             var result = await response.Content.ReadAsStringAsync();
-
+            
             if (result == null)
             {
                 return;
@@ -25,10 +26,7 @@ namespace LayoutTemplateWebApp.Pages.AppCards
         }
         public ActionResult OnPostNavigateToPage()
         {
-            string email = Request.Cookies["email"];
-            string url = "http://www.cancherks.somee.com/";
-            return null;
-            //return Redirect(url + email);
+            return RedirectToPage("/RoleAssignment");
         }
     }
 }
