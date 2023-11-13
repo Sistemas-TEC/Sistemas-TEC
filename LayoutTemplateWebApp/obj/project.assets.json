@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Escritorio\\Compi\\Proyecto\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
       "projectName": "LayoutTemplateWebApp",
-      "projectPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
+      "projectPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\Compi\\Proyecto\\Sistemas-TEC\\LayoutTemplateWebApp\\LayoutTemplateWebApp.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\source\\repos\\Sistemas-TEC\\Sistemas-TEC\\LayoutTemplateWebApp\\obj\\",
+      "outputPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\Compi\\Proyecto\\Sistemas-TEC\\LayoutTemplateWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",

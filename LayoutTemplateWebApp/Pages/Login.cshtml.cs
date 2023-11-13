@@ -50,8 +50,6 @@ namespace LayoutTemplateWebApp.Pages
             //var response = await client.GetAsync(url);
             var result = await response.Content.ReadAsStringAsync();
 
-            Debug.WriteLine(result);
-
             CookieOptions options = new CookieOptions
             {
                 Expires = DateTime.Now.AddMinutes(5) // Sets cookie expiration
@@ -65,6 +63,10 @@ namespace LayoutTemplateWebApp.Pages
             }
             showErrorMsg = false;
             showIncorrect = false;
+            string CurrentPageUrl = $"{Request.Scheme}://{Request.Host}{Request.Path}{Request.QueryString}";
+            Debug.WriteLine(CurrentPageUrl);
+            //String strPathAndQuery = HttpContext.Request.;
+            //String strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
             return RedirectToPage("ApplicationMenu");
         }
     }
